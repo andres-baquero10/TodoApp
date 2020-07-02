@@ -1,0 +1,33 @@
+.Header-container {
+  border-bottom: 1px solid lightgray;
+  position: relative;
+
+  .Header-dateContainer {
+    padding: 20px;
+  }
+  .Header-dateTaskContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .Header-date {
+    color: #5a5de0;
+    font-size: 20px;
+  }
+
+  .Header-dayWeekSpan {
+    font-weight: bold;
+  }
+  .Header-monthSpan {
+    color: gray;
+  }
+
+  .Header-taskSpan {
+    font-weight: bold;
+  }
+
+  .Header-tasks {
+    color: Gray;
+  }
+}

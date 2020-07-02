@@ -1,0 +1,44 @@
+.Form-container {
+  border-top: 1px solid lightgray;
+
+  .Form-todoForm {
+    padding: 50px 20px;
+  }
+
+  .Form-textLabel {
+    font-size: 12px;
+  }
+
+  .Form-timeLabel {
+    font-size: 12px;
+    margin: 0px 5px 0px 10px;
+  }
+
+  .Form-subit {
+    font-size: 12px;
+    margin: 0px 5px;
+  }
+
+  .Form-labelTextSpan {
+    margin-right: 5px;
+  }
+
+  .Form-labelTimeSpan {
+    margin-right: 5px;
+  }
+  .Form-displayButton {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    background-color: #fa7576;
+    position: absolute;
+    top: 100px;
+    right: 20px;
+  }
+
+  &-noBorder {
+    border: none;
+  }
+}

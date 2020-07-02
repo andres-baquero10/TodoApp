@@ -6,4 +6,22 @@
   background-color: white;
   display: flex;
   flex-direction: column;
+
+  .TodoApp-noteContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  }
+  .TodoApp-todoList {
+    width: 100%;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .TodoApp-noTodos {
+    color: gray;
+    align-self: center;
+  }
 }
