@@ -1,17 +1,18 @@
 .TodoItem-list {
-  padding: 20px 0px;
+  padding: 20px 20px;
   position: relative;
+  border-bottom: 1px solid lightgray;
 
   .TodoItem-time {
     position: absolute;
-    right: 0px;
+    right: 22px;
     color: gray;
     font-size: 14px;
     bottom: 21px;
   }
 
   .TodoItem-task {
-    margin: 0px 30px;
+    margin: 0px 50px;
     color: gray;
     font-size: 16px;
   }
@@ -25,17 +26,53 @@
   .TodoItem-deleteIcon {
     width: 19px;
     position: absolute;
-    right: 13px;
+    right: 33px;
     bottom: 21px;
     cursor: pointer;
   }
 
   .TodoItem-checkBox {
+    position: absolute;
+    left: 0px;
+    opacity: 0%;
     cursor: pointer;
   }
+
+  .TodoItem-checkBox:checked ~ .TodoItem-checkSpan {
+    background-color: #e87b78;
+    border: 1px solid #e87b78;
+  }
+
   .TodoItem-editInput {
     margin: 0px 30px;
     color: gray;
     border: none;
+  }
+
+  .TodoItem-checkSpan {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 2px;
+    height: 13px;
+    width: 13px;
+    border: 1px solid lightgray;
+    border-radius: 2px;
+  }
+
+  .TodoItem-checkSpan::after {
+    content: "";
+    width: 3px;
+    height: 8px;
+    top: 1px;
+    left: 4px;
+    position: absolute;
+    border: solid white;
+    border-width: 0px 2px 2px 0px;
+    transform: rotate(45deg);
+  }
+  .TodoItem-label {
+    position: relative;
+    cursor: pointer;
   }
 }

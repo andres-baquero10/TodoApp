@@ -34,27 +34,29 @@ const TodoItem: React.SFC<TodoItemProps> = (props) => {
 
   return (
     <li className="TodoItem-list">
-      <input
-        checked={isChecked}
-        onChange={handleChecked}
-        type="checkbox"
-        className="TodoItem-checkBox"
-      />
-      {isEdting ? (
+      <label className="TodoItem-label">
+        {isEdting ? (
+          <input
+            autoFocus
+            value={task}
+            onBlur={handleToggle}
+            type="text"
+            className={todoItemTask}
+            onChange={handleOnChangeEditInput}
+          />
+        ) : (
+          <span onClick={handleToggle} className={todoItemTask}>
+            {task}
+          </span>
+        )}
         <input
-          autoFocus
-          value={task}
-          onBlur={handleToggle}
-          type="text"
-          className={todoItemTask}
-          onChange={handleOnChangeEditInput}
+          checked={isChecked}
+          onChange={handleChecked}
+          type="checkbox"
+          className="TodoItem-checkBox"
         />
-      ) : (
-        <span onClick={handleToggle} className={todoItemTask}>
-          {task}
-        </span>
-      )}
-
+        <span className="TodoItem-checkSpan"></span>
+      </label>
       {isChecked ? (
         <img
           alt="Delete Icon"

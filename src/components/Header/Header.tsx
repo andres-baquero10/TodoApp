@@ -26,7 +26,7 @@ const Header: React.SFC<HeaderProps> = (props) => {
           <p className="Header-tasks">
             Tasks{" "}
             <span className="Header-taskSpan">
-              {getDoneTodos() + "/" + todos.length}
+              {getDoneTodos() + " / " + todos.length}
             </span>
           </p>
         </div>

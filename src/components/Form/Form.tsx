@@ -25,7 +25,7 @@ const Form: React.SFC<FormProps> = (props) => {
 
   const resetState = (): void => {
     setTask("");
-    setTime("");
+    setTime("09:00");
     setVisibility(!isVisible);
   };
 
