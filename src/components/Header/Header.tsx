@@ -8,10 +8,11 @@ import Form from "../Form/Form";
 export interface HeaderProps {
   todos: TodoInterface[];
   handleNewItem(task: string, time: string): void;
+  getDoneTodos(): void;
 }
 
 const Header: React.SFC<HeaderProps> = (props) => {
-  const { todos } = props;
+  const { todos, getDoneTodos, handleNewItem } = props;
   return (
     <div className="Header-container">
       <div className="Header-dateContainer">
@@ -23,13 +24,15 @@ const Header: React.SFC<HeaderProps> = (props) => {
             {moment().format("do")}
           </p>
           <p className="Header-tasks">
-            <span className="Header-taskSpan">{todos.length}</span>
-            {todos.length === 1 ? " Task" : " Tasks"}
+            Tasks{" "}
+            <span className="Header-taskSpan">
+              {getDoneTodos() + "/" + todos.length}
+            </span>
           </p>
         </div>
         <span className="Header-monthSpan"> {moment().format("MMMM")}</span>
       </div>
-      <Form handleNewItem={props.handleNewItem} />
+      <Form handleNewItem={handleNewItem} />
     </div>
   );
 };

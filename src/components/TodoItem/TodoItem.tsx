@@ -8,14 +8,29 @@ export interface TodoItemProps {
   todo: TodoInterface;
   handleChecked(): void;
   handleDeleteItem(): void;
+  handleToggle(): void;
+  handleEditTask(index: number, value: string): void;
+  index: number;
 }
 
 const TodoItem: React.SFC<TodoItemProps> = (props) => {
-  const { id, task, time, isChecked } = props.todo;
-  const { handleChecked, handleDeleteItem } = props;
+  const { id, task, time, isChecked, isEdting } = props.todo;
+  const {
+    handleChecked,
+    handleDeleteItem,
+    handleToggle,
+    handleEditTask,
+    index,
+  } = props;
   const todoItemTask = classNames("TodoItem-task", {
     "TodoItem-task-selected": isChecked,
   });
+
+  const handleOnChangeEditInput = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    handleEditTask(index, e.target.value);
+  };
 
   return (
     <li className="TodoItem-list">
@@ -25,7 +40,21 @@ const TodoItem: React.SFC<TodoItemProps> = (props) => {
         type="checkbox"
         className="TodoItem-checkBox"
       />
-      <span className={todoItemTask}>{task}</span>
+      {isEdting ? (
+        <input
+          autoFocus
+          value={task}
+          onBlur={handleToggle}
+          type="text"
+          className={todoItemTask}
+          onChange={handleOnChangeEditInput}
+        />
+      ) : (
+        <span onClick={handleToggle} className={todoItemTask}>
+          {task}
+        </span>
+      )}
+
       {isChecked ? (
         <img
           alt="Delete Icon"

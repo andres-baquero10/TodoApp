@@ -50,9 +50,31 @@ const TodoApp: React.SFC<TodoAppProps> = () => {
     setTodos([...tempTodos]);
   };
 
+  const handleToggle = (index: number): void => {
+    const tempTodos = [...todos];
+    tempTodos[index].isEdting = !tempTodos[index].isEdting;
+    setTodos([...tempTodos]);
+  };
+
+  const handleEditTask = (index: number, value: string): void => {
+    const tempTodos = [...todos];
+    tempTodos[index].task = value;
+    setTodos([...tempTodos]);
+  };
+
+  const getDoneTodos = (): number => {
+    const tempTodos = [...todos];
+    const checkedItems = tempTodos.filter((todo) => todo.isChecked);
+    return checkedItems.length;
+  };
+
   return (
     <div className="TodoApp-container">
-      <Header handleNewItem={handleNewItem} todos={todos} />
+      <Header
+        getDoneTodos={getDoneTodos}
+        handleNewItem={handleNewItem}
+        todos={todos}
+      />
       <div className="TodoApp-noteContainer">
         {todos.length ? (
           <ul className="TodoApp-todoList">
@@ -60,14 +82,17 @@ const TodoApp: React.SFC<TodoAppProps> = () => {
               <TodoItem
                 handleChecked={() => handleChecked(index)}
                 handleDeleteItem={() => handleDeleteItem(index)}
+                handleToggle={() => handleToggle(index)}
+                handleEditTask={handleEditTask}
                 key={todo.id}
                 todo={todo}
+                index={index}
               />
             ))}
           </ul>
         ) : (
           <span className="TodoApp-noTodos">
-            There are no pending task, lets add one
+            There are no pending tasks, lets add one
           </span>
         )}
       </div>

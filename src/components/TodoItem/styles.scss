@@ -13,7 +13,7 @@
   .TodoItem-task {
     margin: 0px 30px;
     color: gray;
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .TodoItem-task-selected {
@@ -32,5 +32,10 @@
 
   .TodoItem-checkBox {
     cursor: pointer;
+  }
+  .TodoItem-editInput {
+    margin: 0px 30px;
+    color: gray;
+    border: none;
   }
 }
