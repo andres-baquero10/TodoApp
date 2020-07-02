@@ -16,10 +16,10 @@ const Form: React.SFC<FormProps> = (props) => {
     setVisibility(!isVisible);
   };
 
-  const handleonChangeInputText = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOnChangeInputText = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTask(e.target.value);
   };
-  const handleonChangeInputTime = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOnChangeInputTime = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTime(e.target.value);
   };
 
@@ -46,7 +46,7 @@ const Form: React.SFC<FormProps> = (props) => {
         <label className="Form-textLabel">
           <span className="Form-labelTextSpan">Add Task</span>
           <input
-            onChange={handleonChangeInputText}
+            onChange={handleOnChangeInputText}
             value={task}
             type="text"
             className="Form-inputText"
@@ -55,7 +55,7 @@ const Form: React.SFC<FormProps> = (props) => {
         <label className="Form-timeLabel">
           <span className="Form-labelTimeSpan">Due</span>
           <input
-            onChange={handleonChangeInputTime}
+            onChange={handleOnChangeInputTime}
             value={time}
             className="Form-inputTime"
             type="time"

@@ -21,4 +21,16 @@
     text-decoration-color: lightgray;
     color: lightgray;
   }
+
+  .TodoItem-deleteIcon {
+    width: 19px;
+    position: absolute;
+    right: 13px;
+    bottom: 21px;
+    cursor: pointer;
+  }
+
+  .TodoItem-checkBox {
+    cursor: pointer;
+  }
 }

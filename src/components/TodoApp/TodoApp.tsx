@@ -12,6 +12,7 @@ export interface TodoInterface {
   task: string;
   time: string;
   isChecked: boolean;
+  isEdting: boolean;
 }
 
 const TodoApp: React.SFC<TodoAppProps> = () => {
@@ -21,6 +22,7 @@ const TodoApp: React.SFC<TodoAppProps> = () => {
       task: "Dance",
       time: "09:00",
       isChecked: false,
+      isEdting: false,
     },
   ]);
 
@@ -30,14 +32,21 @@ const TodoApp: React.SFC<TodoAppProps> = () => {
       task: task,
       time: time,
       isChecked: false,
+      isEdting: false,
     };
 
     setTodos([newTodo, ...todos]);
   };
 
-  const handleChecked = (index: number) => {
+  const handleChecked = (index: number): void => {
     const tempTodos = [...todos];
     tempTodos[index].isChecked = !tempTodos[index].isChecked;
+    setTodos([...tempTodos]);
+  };
+
+  const handleDeleteItem = (index: number): void => {
+    const tempTodos = [...todos];
+    tempTodos.splice(index, 1);
     setTodos([...tempTodos]);
   };
 
@@ -50,6 +59,7 @@ const TodoApp: React.SFC<TodoAppProps> = () => {
             {todos.map((todo, index) => (
               <TodoItem
                 handleChecked={() => handleChecked(index)}
+                handleDeleteItem={() => handleDeleteItem(index)}
                 key={todo.id}
                 todo={todo}
               />

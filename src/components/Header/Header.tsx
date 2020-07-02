@@ -24,7 +24,7 @@ const Header: React.SFC<HeaderProps> = (props) => {
           </p>
           <p className="Header-tasks">
             <span className="Header-taskSpan">{todos.length}</span>
-            {todos.length === 1 ? " Task" : " Task"}
+            {todos.length === 1 ? " Task" : " Tasks"}
           </p>
         </div>
         <span className="Header-monthSpan"> {moment().format("MMMM")}</span>
