@@ -3,6 +3,7 @@ import * as React from "react";
 import { TodoInterface } from "../TodoApp/TodoApp";
 import classNames from "classnames";
 import deleteIcon from "../../assets/DeleteIcon.svg";
+import moment from "moment";
 
 export interface TodoItemProps {
   todo: TodoInterface;
@@ -30,6 +31,14 @@ const TodoItem: React.SFC<TodoItemProps> = (props) => {
     e: React.ChangeEvent<HTMLInputElement>
   ): void => {
     handleEditTask(index, e.target.value);
+  };
+
+  const formateDate = (): string => {
+    const timeStringFormat = time.getHours() + ":" + time.getMinutes();
+    const timeFormatted = moment
+      .utc(timeStringFormat, "HH:mm")
+      .format("HH:mm A");
+    return timeFormatted;
   };
 
   return (
@@ -65,7 +74,7 @@ const TodoItem: React.SFC<TodoItemProps> = (props) => {
           onClick={handleDeleteItem}
         />
       ) : (
-        <span className="TodoItem-time">{time}</span>
+        <span className="TodoItem-time">{formateDate()}</span>
       )}
     </li>
   );

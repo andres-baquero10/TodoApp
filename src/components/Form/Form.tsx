@@ -3,13 +3,19 @@ import "./styles.scss";
 import * as React from "react";
 import { useState } from "react";
 import classNames from "classnames";
+
 export interface FormProps {
   handleNewItem(task: string, time: string): void;
 }
 
 const Form: React.SFC<FormProps> = (props) => {
+  const getCurrentTime = (): string => {
+    const date = new Date();
+    const time = date.getHours() + ":" + date.getMinutes();
+    return time;
+  };
   const [task, setTask] = useState<string>("");
-  const [time, setTime] = useState<string>("09:00");
+  const [time, setTime] = useState<string>(getCurrentTime());
   const [isVisible, setVisibility] = useState<boolean>(true);
 
   const handleFormVisibilitty = (): void => {
@@ -25,7 +31,7 @@ const Form: React.SFC<FormProps> = (props) => {
 
   const resetState = (): void => {
     setTask("");
-    setTime("09:00");
+    setTime(getCurrentTime());
     setVisibility(!isVisible);
   };
 
@@ -46,6 +52,7 @@ const Form: React.SFC<FormProps> = (props) => {
         <label className="Form-textLabel">
           <span className="Form-labelTextSpan">Add Task</span>
           <input
+            required
             onChange={handleOnChangeInputText}
             value={task}
             type="text"

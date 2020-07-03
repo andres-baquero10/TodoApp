@@ -1,12 +1,19 @@
-.TodoApp-container {
-  margin: 30px auto;
-  width: 450px;
-  height: 600px;
-  border-radius: 8px;
-  background-color: white;
+.TodoApp-appContainer {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
+  .TodoApp-container {
+    width: 450px;
+    height: 600px;
+    border-radius: 8px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+  }
   .TodoApp-noteContainer {
     flex: 1;
     display: flex;
