@@ -14,6 +14,7 @@ const Form: React.SFC<FormProps> = (props) => {
     const time = date.getHours() + ":" + date.getMinutes();
     return time;
   };
+
   const [task, setTask] = useState<string>("");
   const [time, setTime] = useState<string>(getCurrentTime());
   const [isVisible, setVisibility] = useState<boolean>(true);
@@ -38,6 +39,7 @@ const Form: React.SFC<FormProps> = (props) => {
   const formContainer = classNames("Form-container", {
     "Form-container-noBorder": isVisible,
   });
+
   return (
     <div className={formContainer}>
       <form
@@ -66,6 +68,7 @@ const Form: React.SFC<FormProps> = (props) => {
             value={time}
             className="Form-inputTime"
             type="time"
+            required
           />
         </label>
         <input value="Add Task" className="Form-subit" type="submit" />

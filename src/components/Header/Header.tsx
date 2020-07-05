@@ -21,7 +21,7 @@ const Header: React.SFC<HeaderProps> = (props) => {
             <span className="Header-dayWeekSpan">
               {moment().format("dddd")},
             </span>{" "}
-            {moment().format("do")}
+            {moment().format("Do")}
           </p>
           <p className="Header-tasks">
             Tasks{" "}
